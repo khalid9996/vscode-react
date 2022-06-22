@@ -9,6 +9,7 @@ import {VscRemoteExplorer} from "react-icons/vsc"
 import {VscLiveShare} from "react-icons/vsc"
 import {HiOutlineUserCircle} from "react-icons/hi"
 import {VscSettingsGear} from "react-icons/vsc"
+import {FiMoreHorizontal} from "react-icons/fi"
 
 const Sidebar = () => {
   return (
@@ -27,11 +28,24 @@ const Sidebar = () => {
                 <HiOutlineUserCircle className='sidenavicon'/>
                 <VscSettingsGear className='sidenavicon'/>
             </div>
-            
         </div>
 
         {/* sidebar explorer */}
-        <div className="sidebar__explorer"></div>
+        <div className="sidebar__explorer">
+            <div className='explorer__txt'><p>Explorer</p><FiMoreHorizontal/></div>
+            <p>>portfolio</p>
+            <p>node_module</p>
+            <p>public</p>
+            <p>src</p>
+            <p>assets</p>
+            <p>>components</p>
+            <p>App.css</p>
+            <p>App.jsx</p>
+            <p>index.css</p>
+            <p>index.js</p>
+            
+
+        </div>
     </div>
   )
 }

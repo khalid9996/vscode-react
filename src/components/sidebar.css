@@ -37,7 +37,9 @@
     height: 54.1rem;
     width: 12rem;
     background-color: rgb(32, 32, 32);
+    font-size: 15px;
 }
+
 
 
 .explorer__txt {
@@ -46,3 +48,23 @@
     gap: 90px;
     color: rgb(185, 185, 185);
 }
+
+.sidebar__expansion {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+}
+
+
+.explorer_portfolio {
+    margin-left: 13px;
+}
+
+.explorer_src {
+    margin-left: 13px;
+}
+
+.explorer_components {
+    margin-left: 13px;
+}
+

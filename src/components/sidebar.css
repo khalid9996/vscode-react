@@ -32,6 +32,8 @@
 }
 
 .sidebar__explorer {
+    cursor: pointer;
+    user-select: none;
     padding: 7px;
     color: white;
     height: 54.1rem;

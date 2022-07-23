@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./sidebar.css"
 import {VscFiles} from "react-icons/vsc"
 import {VscSearch} from "react-icons/vsc"
@@ -20,6 +20,10 @@ import {FaGitAlt} from "react-icons/fa"
 import {AiFillExclamationCircle} from "react-icons/ai"
 
 const Sidebar = () => {
+
+  const [portExpand, setPortExpand] = useState(true);
+  const [srcExpand, setSrcExpand] = useState(true);
+  const [componentExpand, setComponentExpand] = useState(true);
   return (
     <div className='sidebar'>
         {/* sidebar nav */}
@@ -41,29 +45,29 @@ const Sidebar = () => {
         {/* sidebar explorer */}
         <div className="sidebar__explorer">
             <div className='explorer__txt'><p>Explorer</p><FiMoreHorizontal/></div>
-            <div className='sidebar__expansion'><MdOutlineExpandMore/><p>portfolio</p></div>
+            <div onClick={() => setPortExpand(portExpand===false? (true):(false))} className='sidebar__expansion'>{portExpand? (<MdOutlineExpandMore/>):(<IoIosArrowForward/>)}<p>portfolio</p></div>
             
-            <div className='explorer_portfolio'>
+            {portExpand && <div className='explorer_portfolio'>
             <div className='sidebar__expansion'><IoIosArrowForward/><BsFolderFill color='rgb(93, 204, 93)'/><p>node_module</p></div>
             <div className='sidebar__expansion'><IoIosArrowForward/><BsFolderFill color='rgb(13, 122, 212)'/><p>public</p></div>
-            <div className='sidebar__expansion'><MdOutlineExpandMore/><BsFolderFill color='rgb(11, 141, 11)'/><p>src</p></div>
+            <div onClick={() => setSrcExpand(srcExpand===true? (false):(true))} className='sidebar__expansion'>{srcExpand? (<MdOutlineExpandMore/>):(<IoIosArrowForward/>)}<BsFolderFill color='rgb(11, 141, 11)'/><p>src</p></div>
 
-            <div className='explorer_src'>
+            {srcExpand && <div className='explorer_src'>
             <div className='sidebar__expansion'><IoIosArrowForward/><BsFolderFill color='rgb(218, 167, 0)'/><p>assets</p></div>
-            <div className='sidebar__expansion'><MdOutlineExpandMore/><BsFolderFill color='rgb(218, 167, 0)'/><p>components</p></div>
+            <div onClick={() => (setComponentExpand(componentExpand===true? (false):(true)))} className='sidebar__expansion'>{componentExpand? (<MdOutlineExpandMore/>):(<IoIosArrowForward/>)}<BsFolderFill color='rgb(218, 167, 0)'/><p>components</p></div>
             
-            <div className='explorer_components'>
+            {componentExpand && <div className='explorer_components'>
             <div className='sidebar__expansion'><FaCss3 color='rgb(13, 122, 212)'/><p>App.css</p></div>
             <div className='sidebar__expansion'><SiJavascript color='rgb(218, 167, 0)'/><p>App.js</p></div>
             <div className='sidebar__expansion'><FaCss3 color='rgb(13, 122, 212)'/><p>index.css</p></div>
             <div className='sidebar__expansion'><SiJavascript color='rgb(218, 167, 0)'/><p>index.js</p></div>
-            </div>
-            </div>
+            </div>}
+            </div>}
             <div className='sidebar__expansion'><FaGitAlt color='rgb(160, 29, 29)'/><p>.gitignore</p></div>
             <div className='sidebar__expansion'><IoLogoNodejs color='rgb(93, 204, 93)'/><p>pakage-lock.json</p></div>
             <div className='sidebar__expansion'><IoLogoNodejs color='rgb(93, 204, 93)'/><p>pakage.json</p></div>
             <div className='sidebar__expansion'><AiFillExclamationCircle color='rgb(0, 176, 235)'/><p>README.md</p></div>
-            </div>
+            </div>}
 
         </div>
     </div>
